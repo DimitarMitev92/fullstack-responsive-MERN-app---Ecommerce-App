@@ -4,7 +4,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import styled from '@emotion/styled';
-import { shades } from '../../theme.js';
+import { shades } from '../../theme';
 import {
     decreaseCount,
     increaseCount,
@@ -30,9 +30,9 @@ const CartMenu = () => {
     }, 0);
 
     return (
-        <Box //overlay
+        <Box
             display={isCartOpen ? 'block' : 'none'}
-            backgroundColor='rgba(0,0,0,0.4)'
+            backgroundColor='rgba(0, 0, 0, 0.4)'
             position='fixed'
             zIndex={10}
             width='100%'
@@ -41,12 +41,11 @@ const CartMenu = () => {
             top='0'
             overflow='auto'
         >
-            {/* MODAL */}
             <Box
                 position='fixed'
                 right='0'
                 bottom='0'
-                width='max(400px,30%)'
+                width='max(400px, 30%)'
                 height='100%'
                 backgroundColor='white'
             >
@@ -68,14 +67,13 @@ const CartMenu = () => {
                                 <FlexBox p='15px 0'>
                                     <Box flex='1 1 40%'>
                                         <img
-                                            src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
                                             alt={item?.name}
                                             width='123px'
                                             height='164px'
+                                            src={`http://localhost:2000${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
                                         />
                                     </Box>
                                     <Box flex='1 1 60%'>
-                                        {/* ITEM NAME */}
                                         <FlexBox mb='5px'>
                                             <Typography fontWeight='bold'>
                                                 {item.attributes.name}
@@ -95,12 +93,10 @@ const CartMenu = () => {
                                         <Typography>
                                             {item.attributes.shortDescription}
                                         </Typography>
-
-                                        {/* AMOUNT */}
                                         <FlexBox m='15px 0'>
                                             <Box
                                                 display='flex'
-                                                alignContent='center'
+                                                alignItems='center'
                                                 border={`1.5px solid ${shades.neutral[500]}`}
                                             >
                                                 <IconButton
@@ -129,12 +125,10 @@ const CartMenu = () => {
                                                     <AddIcon />
                                                 </IconButton>
                                             </Box>
+                                            <Typography fontWeight='bold'>
+                                                ${item.attributes.price}
+                                            </Typography>
                                         </FlexBox>
-
-                                        {/* PRICE */}
-                                        <Typography fontWeight='bold'>
-                                            ${item.attributes.price}
-                                        </Typography>
                                     </Box>
                                 </FlexBox>
                                 <Divider />
