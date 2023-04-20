@@ -1,5 +1,4 @@
 import { createTheme } from '@mui/material/styles';
-import { create } from '@mui/material/styles/createTransitions.js';
 
 export const shades = {
     primary: {
@@ -37,7 +36,7 @@ export const shades = {
     }
 };
 
-export const theme = create({
+export const theme = createTheme({
     palette: {
         primary: {
             main: shades.primary[500]
